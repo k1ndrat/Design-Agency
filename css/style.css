@@ -252,7 +252,7 @@ h6 {
 
 .header {
   opacity: 0;
-  position: absolute;
+  position: fixed;
   z-index: 10;
   width: 100%;
   top: 0;
@@ -285,9 +285,21 @@ h6 {
 
 .header._active {
   opacity: 1;
-  -webkit-transition: all 0.6s ease 1.3s;
-  -o-transition: all 0.6s ease 1.3s;
-  transition: all 0.6s ease 1.3s;
+  -webkit-transition: opacity 0.6s ease 1.3s, background-color 0.6s ease 0s, padding 0.6s ease 0s;
+  -o-transition: opacity 0.6s ease 1.3s, background-color 0.6s ease 0s, padding 0.6s ease 0s;
+  transition: opacity 0.6s ease 1.3s, background-color 0.6s ease 0s, padding 0.6s ease 0s;
+}
+
+.header._header-scroll {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.header._header-scroll .header__button {
+  color: #000;
+}
+
+.header._header-scroll .header__button:hover {
+  color: #ffffff;
 }
 
 .header__container {
@@ -372,6 +384,7 @@ h6 {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #57b3fe;
+  border: 1px solid white;
   -webkit-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
@@ -418,19 +431,19 @@ h6 {
   row-gap: 0.3125rem;
 }
 
-@supports ((-moz-column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem )) or (column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem ))) {
+@supports ((-moz-column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem )) or (column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem ))) {
   .menu__list {
-    -webkit-column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem );
-       -moz-column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem );
-            column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem );
+    -webkit-column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem );
+       -moz-column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem );
+            column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem );
   }
 }
 
-@supports not ((-moz-column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem )) or (column-gap: clamp( 0.4375rem , -2.5475746269rem  +  6.2189054726vw , 2rem ))) {
+@supports not ((-moz-column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem )) or (column-gap: clamp( 0.9375rem , -1.0923507463rem  +  4.2288557214vw , 2rem ))) {
   .menu__list {
-    -webkit-column-gap: calc(0.4375rem + 1.5625 * (100vw - 48rem) / 25.125);
-       -moz-column-gap: calc(0.4375rem + 1.5625 * (100vw - 48rem) / 25.125);
-            column-gap: calc(0.4375rem + 1.5625 * (100vw - 48rem) / 25.125);
+    -webkit-column-gap: calc(0.9375rem + 1.0625 * (100vw - 48rem) / 25.125);
+       -moz-column-gap: calc(0.9375rem + 1.0625 * (100vw - 48rem) / 25.125);
+            column-gap: calc(0.9375rem + 1.0625 * (100vw - 48rem) / 25.125);
   }
 }
 
@@ -2316,6 +2329,32 @@ h6 {
   height: 600px;
   width: 600px;
   border: none;
+}
+
+@media (min-width: 47.99875em) {
+@supports (padding-top: clamp( 0.3125rem , 0.1534090909rem  +  0.7954545455vw , 0.75rem )) {
+    .header._header-scroll {
+      padding-top: clamp( 0.3125rem , 0.1534090909rem  +  0.7954545455vw , 0.75rem );
+    }
+}
+
+@supports not (padding-top: clamp( 0.3125rem , 0.1534090909rem  +  0.7954545455vw , 0.75rem )) {
+    .header._header-scroll {
+      padding-top: calc(0.3125rem + 0.4375 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (padding-bottom: clamp( 0.3125rem , 0.1534090909rem  +  0.7954545455vw , 0.75rem )) {
+    .header._header-scroll {
+      padding-bottom: clamp( 0.3125rem , 0.1534090909rem  +  0.7954545455vw , 0.75rem );
+    }
+}
+
+@supports not (padding-bottom: clamp( 0.3125rem , 0.1534090909rem  +  0.7954545455vw , 0.75rem )) {
+    .header._header-scroll {
+      padding-bottom: calc(0.3125rem + 0.4375 * (100vw - 20rem) / 55);
+    }
+}
 }
 
 @media (min-width: 73.125em) {
